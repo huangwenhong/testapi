@@ -47,7 +47,7 @@ class TestDongjingGroupLoginAPI(TestCase):
                 self.set_variable("fuserBrowseAreaCode", self.user_area_code)
     
     def test_successful_login(self):
-        """测试东经易网成功登录"""
+        """测试东经易网成功登录 - 修复TypeError错误"""
         login_data = config.get_test_data("login_data.dongjing_group_valid")
         login_endpoint = config.get_api_endpoint("dongjing_group", "login")
         
