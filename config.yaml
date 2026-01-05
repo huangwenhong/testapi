@@ -1,0 +1,139 @@
+# API测试框架配置
+
+# 环境配置
+environments:
+  dev:
+    base_url: "https://jsonplaceholder.typicode.com"
+    headers:
+      Content-Type: "application/json"
+      User-Agent: "APITestFramework/1.0"
+    
+  staging:
+    base_url: "https://staging-api.example.com"
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer your-staging-token"
+    
+  production:
+    base_url: "https://api.example.com"
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer your-production-token"
+    
+  # 东经智能管理平台环境
+  dongjing:
+    base_url: "https://suppliertest.onlinecps.cn"
+    headers:
+      Content-Type: "application/json"
+      User-Agent: "APITestFramework/1.0"
+      Accept: "application/json"
+  
+  # 东经易网纸板交易平台环境
+  dongjing_group:
+    base_url: "http://grouptest.cpsol.net"
+    headers:
+      Content-Type: "application/json"
+      User-Agent: "APITestFramework/1.0"
+      Accept: "application/json"
+      Referer: "http://grouptest.cpsol.net/"
+    apis:
+      login: "/djgroupon/outerUser/usernameLogin.do"
+      logout: "/djgroupon/outerUser/logout"
+      get_user_info: "/djgroupon/user/getUserInfo"
+      get_product_list: "/djgroupon/product/list"
+      get_product_detail: "/djgroupon/product/detail"
+      add_to_cart: "/djgroupon/cart/add"
+      get_cart: "/djgroupon/cart/list"
+      create_order: "/djgroupon/order/create"
+      get_order_list: "/djgroupon/order/list"
+      get_order_detail: "/djgroupon/order/detail"
+      cancel_order: "/djgroupon/order/cancel"
+      get_address_list: "/djgroupon/address/list"
+      add_address: "/djgroupon/address/add"
+      update_address: "/djgroupon/address/update"
+      delete_address: "/djgroupon/address/delete"
+      set_default_address: "/djgroupon/address/setDefault"
+      get_payment_methods: "/djgroupon/payment/methods"
+      submit_payment: "/djgroupon/payment/submit"
+      get_delivery_date: "/djgroupon/delivery/date"
+      calculate_price: "/djgroupon/price/calculate"
+      pricing_protocol: "/djgroupon/newPlaceOrder/newPricingProtocol.do"
+      product_list: "/djgroupon/product/loadGrouponListUpgradeNew.do"
+      load_user_address: "/djgroupon/address/loadUserAddress.do"
+      save_cart: "/djgroupon/shoppingCart/save.do"
+
+# 测试数据
+test_data:
+  # 用户数据
+  user_data:
+    name: "John Doe"
+    email: "john.doe@example.com"
+    username: "johndoe"
+    phone: "1-770-736-8031 x56442"
+    website: "hildegard.org"
+  
+  # 帖子数据
+  post_data:
+    title: "Test Post Title"
+    body: "This is a test post body content for API testing."
+    userId: 1
+  
+  # 登录相关数据
+  login_data:
+    # 东经智能管理平台登录凭据
+    dongjing_valid:
+      username: "4000001"
+      password: "8521f5a31b6d92af9c5004e33229db8f"
+    
+    dongjing_invalid:
+      username: "400002"
+      password: "wrongpassword"
+      account: "400002"
+      pwd: "wrongpassword"
+    
+    # 东经易网登录凭据
+    dongjing_group_valid:
+      username: "18815035030"
+      password: "8521f5a31b6d92af9c5004e33229db8f"
+      account: "testuser"
+      pwd: "testpass"
+  
+  # 下单相关数据
+  order_data:
+   
+  # 购物车数据
+  cart_data:
+    dongjing_group_valid_cart:
+      clientType: 2
+      fuserId: "a74c595b-3385-42df-872d-f086b5bc8536"
+      fid: "a43ffaf4-b4a4-47d1-8fbd-35d8e9b7bce6"
+      fboxModel: 1
+      fboxLength: "44"
+      fboxWidth: "44"
+      fboxHeight: "44"
+      fstaveType: 1
+      fseries: 1
+      fhline: "0+44+44+44+44"
+      fvline: "22+44+22"
+      famount: "444"
+      fhformula: "0.0"
+      fvformula: "0.0"
+      fuserBrowseAreaCode: "330304002"
+      purchaseType: 1
+      changePrice: 2
+      fmaterialLength: "176"
+      fmaterialWidth: "88"
+      optimalGateWidth: null
+      cutNumber: ""
+      openingNumber: 0
+      optionalLarghezza: false
+      salesType: "platform_group"
+  
+ 
+
+# 框架配置
+framework:
+  timeout: 30
+  retries: 3
+  report_dir: "reports"
+  log_level: "INFO"
