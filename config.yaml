@@ -137,3 +137,4 @@ framework:
   retries: 3
   report_dir: "reports"
   log_level: "INFO"
+  1
